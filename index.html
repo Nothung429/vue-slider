@@ -29,8 +29,8 @@
                 <!------ thumbnails ------>
                 <div class="thumbs">
                     <div class="prev" @click="previousImage()"></div>
-                    <div class="thumb" v-for="(picture, index) in images" :class="arrayPosition === index ?'active':null">
-                        <img :src="picture.src" alt="img" @click="selectedImage()">
+                    <div class="thumb" v-for="(picture, index) in images" :class="arrayPosition === index ?'active':null" @click="selectedImage(index)">
+                        <img :src="picture.src" alt="img">
                     </div>
                     <div class="next" @click="nextImage()"></div>
                 </div>

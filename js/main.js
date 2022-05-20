@@ -39,7 +39,6 @@ const app = new Vue ({
                 this.arrayPosition++;
             }
         },
-
         previousImage() {
             if(this.arrayPosition === 0) {
                 this.arrayPosition = this.images.length - 1;
@@ -47,10 +46,8 @@ const app = new Vue ({
                 this.arrayPosition--;
             }
         },
-
-        selectedImage() {
-            
+        selectedImage(index) {
+            this.arrayPosition = index;
         }
-
     }
 });
