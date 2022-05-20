@@ -30,7 +30,6 @@ const app = new Vue ({
             },
         ],
     },
-
     methods: {
         nextImage() {
             if(this.arrayPosition === this.images.length - 1) {
