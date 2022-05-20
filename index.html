@@ -5,35 +5,49 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Carosello News</title>
+        <!------ link css ------>
         <link rel="stylesheet" href="css/style.css">
+        <!------ vue.js ------>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <title>Carosello News</title>
     </head>
 
     <body>
 
         <div id="root">
             <div class="container">
+                <!------ jumboimg ------>
                 <div class="items">
                     <div class="item active">
-                        <img src="img/01.jpg" alt="">
+                        <img :src="images[arrayPosition].src" alt="img-big">
                         <div class="text">
-                            <h3>Lorem</h3>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis, magnam dolores dolorum corporis.</p>
+                            <h3>{{images[arrayPosition].title}}</h3>
+                            <p>{{images[arrayPosition].text}}</p>
                         </div>
                     </div> 
                 </div>
+                <!------ thumbnails ------>
                 <div class="thumbs">
-                    <div class="prev"></div>
-                    <div class="thumb" v-for="picture in images">
-                        <img :src="picture.src" alt="">
+                    <div class="prev" @click="previousImage()"></div>
+                    <div class="thumb" v-for="(picture, index) in images" :class="arrayPosition === index ?'active':null">
+                        <img :src="picture.src" alt="img" @click="selectedImage()">
                     </div>
-                    <div class="next"></div>
+                    <div class="next" @click="nextImage()"></div>
                 </div>
+
             </div>
         </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
         <script src="js/main.js"></script>
     </body>
 
 </html>
+
+<!-- traccia dell'esercizio 
+    Partendo dal markup HTML allegato creare uno slider di immagini in VueJS
+-->
+<!-- bonus 
+    1- al click su una thumb, visualizzare in grande l'immagine corrispondente
+    2- applicare l'autoplay allo slider: ogni 3 secondi, cambia immagine automaticamente
+    3- quando il mouse va in hover sullo slider, bloccare l'autoplay e farlo riprendere quando esce
+-->
